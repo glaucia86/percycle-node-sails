@@ -32,9 +32,14 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
+/* Aqui estou definindo a rota da Página: Sign Up - para entrar no sistema */
+'GET /signup': {view: 'signup'}
+
+  /*'/': {
     view: 'homepage'
-  }
+  }*/
+
+
 
   /***************************************************************************
   *                                                                          *
