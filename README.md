@@ -9,10 +9,11 @@ Desenvolvimento de uma aplicação em Node.Js usando Sails.js e MongoDb.
 - MongoDb;
 - Conceito RestFul;
 - PostMan (para testar a API criada);
-- Sails.Js; 
+- Sails.Js; ~ 0.12.1
 - JSON data (para retornar os dados);
 - Bootstrap;
 - EJS;
+- Angular.Js ~1.3;
 
 ## Pré-Requisitos: Instalação de dependências:
 
