@@ -3,7 +3,19 @@
     <head>
         <title>Entrar Sistema Percycle </title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!--STYLES-->
+        <link rel="stylesheet" href="/styles/angular-toastr.css">
+        <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
+        <link rel="stylesheet" href="/styles/importer.css">
+        <!--STYLES END-->
+
+        <!--Adicionando aqui para que o cliente possa ter acesso ao csrf para que possa renderizar o serviço em cada página-->
+        <script type="text/javascript">
+            window.SAILS_LOCALS = { _csrf: "<%= _csrf %>"};
+        </script>
     </head>
+    
     <body ng-app="SignupModule" ng-controller="SignupController" ng-cloak>
         <h1> Página para Entrar
         <!--SCRIPTS-->
