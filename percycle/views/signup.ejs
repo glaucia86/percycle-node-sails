@@ -15,8 +15,28 @@
             window.SAILS_LOCALS = { _csrf: "<%= _csrf %>"};
         </script>
     </head>
-    
+
     <body ng-app="SignupModule" ng-controller="SignupController" ng-cloak>
+        <div class="container-fluid">
+            <!-- Bloco de código: Navbar -->
+            <nav class="navbar navbar-default navbar-inverse">
+
+            <!-- Bloco de código responsável pelo mecanismo da classe: collapse button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" ng-init="navCollapsed=true" ng-click="navCollapsed=!navCollapsed">
+            
+            <!-- Bloco de código que irá controlar o número de linhas nas imagens que irão aparecer na nav collapse -->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!--  -->
+            <a class="navbar-brand" href="/#">Percycle</a>
+            <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+            
+            </div>
+            </nav>
+        </div>
         <h1> Página para Entrar
         <!--SCRIPTS-->
         <script src="/js/dependencies/sails.io.js"></script>
