@@ -1,4 +1,4 @@
-# Projeto - Percycle com Node.Js Sails.Js & MongoDb (em Desenvolvimento)
+# Projeto - Percycle com Node.Js, Sails.Js & MongoDb (em Desenvolvimento)
 
 Desenvolvimento de uma aplicação em Node.Js usando Sails.js e MongoDb.
 
@@ -13,7 +13,6 @@ Desenvolvimento de uma aplicação em Node.Js usando Sails.js e MongoDb.
 - JSON data (para retornar os dados);
 - Bootstrap;
 - EJS;
-- Angular.Js ~1.3;
 
 ## Pré-Requisitos: Instalação de dependências:
 
