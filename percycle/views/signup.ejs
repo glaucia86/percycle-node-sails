@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <!--STYLES-->
-        <link rel="stylesheet" href="/styles/angular-toastr.css">
-        <link rel="stylesheet" href="/styles/bootstrap.3.1.1.css">
         <link rel="stylesheet" href="/styles/importer.css">
         <!--STYLES END-->
 
@@ -30,12 +28,32 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <!--  -->
             <a class="navbar-brand" href="/#">Percycle</a>
             <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
             
-            </div>
+                <!-- Ínicio de bloco de código do formulário de Login -->
+                <form ng-submit="submitLoginForm()" class"navbar-form navbar-right">
+
+                    <!-- Input: Email -->
+                    <div class="form-group">
+                        <input ng-model="loginForm.email" type="text" placeholder="Email" name="email" class="form-control"/>
+                    </div>
+
+                    <!-- Input: Senha -->
+                    <div class="form-group">
+                        <input ng-model="loginForm.senha" type="password" placeholder="Senha" name="senha" class="form-control"/>
+                    </div>
+
+                    <!-- Botão: Enviar --> 
+                    <button type="submit" class="btn btn-success">
+                        <span ng-show="!loginForm.loading">Entrar</span>
+                        <span ng-show="loginForm.loading" class="fa fa-spinner"></span>
+                        <span ng-show="loginForm.loading">Entrando...</span>
+                    </button>
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                </form>
             </nav>
+            </div>
         </div>
         <h1> Página para Entrar
         <!--SCRIPTS-->
