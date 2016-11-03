@@ -55,6 +55,25 @@
             </nav>
             </div>
         </div>
+        <!-- Final do bloco de código do formulário de Login -->
+
+        <!-- Ínicio de bloco de código do formulário Criar Login --> 
+        <form ng-submit="submitSignupForm()" id="sign-up-form" class="form-signin" name="signup">
+            <h2 class="form-signin-heading">Criar uma Conta</h2>
+        </form>
+        <div class="row">
+            <div class="control-group form-group col-md-12" ng-class="{'has-error': signup.name.$invalid && signup.name.$dirty}">
+                <label>Nome Completo</label>
+                <input type="text" class="form-control" placeholder="ex.: Glaucia de Souza Lemos" name="name" ng-model="signupForm.name" ng-maxlength="50" required />
+            
+                <span class="help-block has-error" ng-if="signup.name.$dirty">
+                    <span ng-show="signup.name.$error.required">O campo 'Nome' é obrigatório.</span>
+                    <span ng-show="signup.name.$error.maxlength">O campo 'Nome' não pode conter mais que 50 caracteres.</span>
+                </span>
+            </div>
+        </div>
+        <!-- Fim do bloco de código do formulário Sair --> 
+
         <h1> Página para Entrar
         <!--SCRIPTS-->
         <script src="/js/dependencies/sails.io.js"></script>
