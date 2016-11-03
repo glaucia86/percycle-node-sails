@@ -62,6 +62,8 @@
             <h2 class="form-signin-heading">Criar uma Conta</h2>
         </form>
         <div class="row">
+
+            <!-- Bloco de código: Nome -->
             <div class="control-group form-group col-md-12" ng-class="{'has-error': signup.name.$invalid && signup.name.$dirty}">
                 <label>Nome Completo</label>
                 <input type="text" class="form-control" placeholder="ex.: Glaucia de Souza Lemos" name="name" ng-model="signupForm.name" ng-maxlength="50" required />
@@ -69,6 +71,39 @@
                 <span class="help-block has-error" ng-if="signup.name.$dirty">
                     <span ng-show="signup.name.$error.required">O campo 'Nome' é obrigatório.</span>
                     <span ng-show="signup.name.$error.maxlength">O campo 'Nome' não pode conter mais que 50 caracteres.</span>
+                </span>
+            </div>
+
+            <!-- Bloco de código: Email -->
+            <div class="control-group form-group col-md-12" ng-class="{'has-error':signup.email.$invalid && signup.email.$dirty}">
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="teste@gmail.com" name="email" ng-model="signupForm.email" required/>
+          
+                <span class="help-block has-error" ng-if="signup.email.$dirty">
+                    <span ng-show="signup.email.$error.required">O campo 'Email' é obrigatório</span>
+                    <span ng-show="signup.email.$error.email">Endereço de email inválido.</span>
+                </span>
+            </div>
+
+            <!-- Bloco de código: Senha -->
+            <div class="control-group form-group col-md-6" ng-class="{'has-error':signup.password.$invalid && signup.password.$dirty}">
+                <label>Digite uma Senha</label>
+                <input type="password" class="form-control" placeholder="6 caracteres" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" >
+                
+                <span class="help-block has-error" ng-if="signup.password.$dirty">
+                    <span ng-show="signup.password.$error.required">O campo 'Senha' é obrigatório.</span>
+                    <span ng-show="signup.password.$error.minlength">O campo 'Senha' deve conter 6 caracteres.</span>
+                </span>
+            </div>
+
+            <!-- Bloco de código: Confirmar Senha -->
+            <div class="control-group form-group col-md-6">
+                <label>Confirme a Senha digitada</label>
+                <input type="password" class="form-control" placeholder="digite novamente a senha" name="confirmation" ng-model="signupForm.confirmPassword" required>
+          
+                <span class="help-block has-error" ng-if="signup.confirmation.$dirty">
+                    <span ng-show="signup.password.$error.compareTo">A senha não corresponde.</span>
+                    <span ng-show="signup.confirmation.$error.required">A Confirmação da senha é obrigatório.</span>
                 </span>
             </div>
         </div>
