@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Entrar Sistema Percycle </title>
+        <title>Sistema Percycle </title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <!--STYLES-->
@@ -30,11 +30,11 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="/#">Percycle</a>
+            <a class="navbar-brand" href="/#">Percycle Sistema</a>
             <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
             
                 <!-- Ínicio de bloco de código do formulário de Login -->
-                <form ng-submit="submitLoginForm()" class"navbar-form navbar-right">
+                <form ng-submit="submitLoginForm()" class="navbar-form navbar-right">
 
                     <!-- Input: Email -->
                     <div class="form-group">
@@ -55,13 +55,13 @@
                     <input type="hidden" name="_csrf" value="<%= _csrf %>" />
                 </form>
             </nav>
-            </div>
         </div>
-        <!-- Final do bloco de código do formulário de Login -->
+    </div>
+    <!-- Final do bloco de código do formulário de Login -->
 
         <!-- Ínicio de bloco de código do formulário Criar Login --> 
         <form ng-submit="submitSignupForm()" id="sign-up-form" class="form-signin" name="signup">
-            <h2 class="form-signin-heading">Criar uma Conta</h2>
+            <h2 class="form-signin-heading">Criar Conta</h2>
             <div class="row">
 
                 <!-- Bloco de código: Nome -->
@@ -69,6 +69,7 @@
                     <label>Nome Completo</label>
                     <input type="text" class="form-control" placeholder="ex.: Glaucia de Souza Lemos" name="name" ng-model="signupForm.name" ng-maxlength="50" required />
                 
+                    <!-- Aqui estamos definindo uma lógica em caso de não digitar o nome apresentará uma mensagem de erro -->
                     <span class="help-block has-error" ng-if="signup.name.$dirty">
                         <span ng-show="signup.name.$error.required">O campo 'Nome' é obrigatório.</span>
                         <span ng-show="signup.name.$error.maxlength">O campo 'Nome' não pode conter mais que 50 caracteres.</span>
@@ -77,8 +78,8 @@
 
                 <!-- Bloco de código: Email -->
                 <div class="control-group form-group col-md-12" ng-class="{'has-error':signup.email.$invalid && signup.email.$dirty}">
-                    <label>Email</label>
-                    <input type="email" class="form-control" placeholder="teste@gmail.com" name="email" ng-model="signupForm.email" required/>
+                    <label>Digite seu E-mail</label>
+                    <input type="email" class="form-control" placeholder="teste@email.com" name="email" ng-model="signupForm.email" required/>
             
                     <span class="help-block has-error" ng-if="signup.email.$dirty">
                         <span ng-show="signup.email.$error.required">O campo 'Email' é obrigatório</span>
@@ -88,9 +89,10 @@
 
                 <!-- Bloco de código: Senha -->
                 <div class="control-group form-group col-md-6" ng-class="{'has-error':signup.password.$invalid && signup.password.$dirty}">
-                    <label>Digite uma Senha</label>
-                    <input type="password" class="form-control" placeholder="6 caracteres" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" >
+                    <label>Digite a Senha</label>
+                    <input type="password" class="form-control" placeholder="Senha de 6 caracteres" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" >
                     
+                    <!-- Aqui estamos definindo uma lógica em caso de não digitar a senha apresentará uma mensagem de erro -->
                     <span class="help-block has-error" ng-if="signup.password.$dirty">
                         <span ng-show="signup.password.$error.required">O campo 'Senha' é obrigatório.</span>
                         <span ng-show="signup.password.$error.minlength">O campo 'Senha' deve conter 6 caracteres.</span>
@@ -99,9 +101,10 @@
 
                 <!-- Bloco de código: Confirmar Senha -->
                 <div class="control-group form-group col-md-6">
-                    <label>Confirme a Senha digitada</label>
-                    <input type="password" class="form-control" placeholder="digite novamente a senha" name="confirmation" ng-model="signupForm.confirmPassword" required>
+                    <label>Confirme a Senha Digitada</label>
+                    <input type="password" class="form-control" placeholder="Digite Novamente a Senha" name="confirmation" ng-model="signupForm.confirmPassword" required>
             
+                     <!-- Aqui estamos definindo uma lógica em caso de não digitar a confirmação da senha apresentará uma mensagem de erro -->
                     <span class="help-block has-error" ng-if="signup.confirmation.$dirty">
                         <span ng-show="signup.password.$error.compareTo">A senha não corresponde.</span>
                         <span ng-show="signup.confirmation.$error.required">A Confirmação da senha é obrigatório.</span>
@@ -121,10 +124,10 @@
 
         <div class="container">
             <hr>
-            <footer class="footer pull-right">
-                <div>
-                    <a href="http://sailsjs.com/">sailsjs.org</a>
-                    <div>Projeto Desenvolvido por: Glaucia Lemos - Full Stack Developer</div>
+            <footer class="footer">
+                <div class="footer-bottom">
+                    <a href="http://www.code4coders.wordpress.com/"><center>Code4Coders</center></a>
+                    <div><center>Copyright © Developed by Glaucia Lemos 2016 - Full Stack Developer. All Rights Reserved.</center></div>
                 </div>
             </footer>
         </div>
@@ -132,7 +135,7 @@
         <!--SCRIPTS-->
         <script src="/js/dependencies/sails.io.js"></script>
         <script src="/js/dependencies/angular.1.3.js"></script>
-        <script src="/js/dependencies/angular-toastr.js"></script>      
+        <script src="/js/dependencies/angular-toastr.js"></script>
         <script src="/js/dependencies/compareTo.module.js"></script>
         <script src="/js/public/signup/SignupModule.js"></script>
         <script src="/js/public/signup/SignupController.js"></script>
