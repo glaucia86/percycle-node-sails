@@ -307,6 +307,15 @@ body {
   background-color: #ffffff;
 }
 
+.footer-percycle {
+  background: #bdbdbd;
+  bottom: 0;
+  height: auto;
+  padding-bottom: 50px;
+  position: relative;
+  width: 100%;
+}
+
 input,
 button,
 select,
