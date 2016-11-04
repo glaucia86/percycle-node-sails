@@ -62,3 +62,5 @@
 //    grantTokenViaAjax: true,
 //    origin: ''
 // }
+
+module.exports.csrf = true;

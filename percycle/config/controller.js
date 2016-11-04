@@ -37,7 +37,7 @@ module.exports.controllers = {
     // '/:controller/create'
     // '/:controller/update/:id'
     // '/:controller/destroy/:id'
-    shortcuts: false,
+    shortcuts: true,
 
 
     // Automatic REST blueprints enabled?
@@ -46,8 +46,8 @@ module.exports.controllers = {
     // 'post /:controller'
     // 'put /:controller/:id'
     // 'delete /:controller/:id'
-    rest: false,
-
+    rest: true,
+    
 
     // If a blueprint route catches a request,
     // only match :id param if it's an integer
@@ -58,5 +58,4 @@ module.exports.controllers = {
     //		get /user/a8j4g9jsd9ga4ghjasdha
     expectIntegerId: false
   }
-
 };
