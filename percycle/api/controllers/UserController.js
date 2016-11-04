@@ -50,7 +50,7 @@ module.exports = {
     },
 
     /** Função responsável por listar os usuários cadastrados: localhost:1337/user */
-    listUsers: function(req, res, next) {
+    index: function(req, res, next) {
         //Aqui o código irá retornar todos os usuários da coleção:
         User.find(function foundUsers(err, users) {
             if(err)

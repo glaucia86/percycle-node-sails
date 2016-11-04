@@ -1,0 +1,26 @@
+<!-- PÁGINA RESPONSÁVEL POR LISTAR TODOS OS USUÁRIOS JÁ CADASTRADOS NO SISTEMA -->
+
+<div class="container">
+    <h3>Lista de Usuários Cadastrados</h3>
+    <table class="table table-striped">
+        <tr>
+            <th>Id do Usuário</th>
+            <th>Nome Completo</th>
+            <th>E-mail Cadastrado</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        <% _.each(users, function(user) { %>
+        <tr data-id="<%= user.id%>" data-model="user">
+            <td><%= user.id %></td>
+            <td><%= user.nome %></td>
+            <td><%= user.email %></td>
+            <td><a href="/user/showUser/<%= user.id %>" class="btn btn-sm btn-primary">Mostrar Perfil</a></td>
+            <td><a href="/user/updateUser/<%= user.id %>" class="btn btn-sm btn-warning">Atualizar</a></td>
+            <td><a href="/user/deleteUser/<%= user.id %>" class="btn btn-sm btn-danger">Excluir</a></td>
+        </tr>
+        <% }) %>
+    </table>
+</div>
