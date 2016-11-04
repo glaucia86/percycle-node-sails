@@ -49,7 +49,7 @@ module.exports = {
         });
     },
 
-    /** Função responsável por listar os usuários cadastrados: localhost:1337/user */
+    /** Função responsável por listar os usuários cadastrados (ADMIN): localhost:1337/user */
     index: function(req, res, next) {
         //Aqui o código irá retornar todos os usuários da coleção:
         User.find(function foundUsers(err, users) {
@@ -58,6 +58,30 @@ module.exports = {
             res.view({
                 users: users
             });
+        });
+    },
+
+    /** Função responsável por atualizar o usuário cadastrado(ADMIN): localhost:1337/user/edit/:id */
+    edit: function(req, res, next) {
+        User.findOne(req.param('id'), function foundUser(err, user) {
+            if(err)
+                return next(err);
+            if(!err)
+                return next();
+            res.view({
+                user:user
+            });
+        });
+    },
+
+    /** Funçã responsável por editar as informações do usuário (USUÁRIO): ex.: http://localhost:1337/user/showUser/1 */
+    update: function(req, res, next) {
+        User.update(req.param('id'), req.params.all(), function userUpdate(err) {
+            if(err) {
+                return res.redirect('/user/edit/' + req.param('id'));
+            }
+
+            res.redirect('/user/showUser/' + req.param('id'));
         });
     }
 };
