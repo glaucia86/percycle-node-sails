@@ -11,7 +11,7 @@ module.exports = {
   schema: true,
 
   attributes: {
-    nome: {
+    name: {
       type: 'string',
       required: true
     },

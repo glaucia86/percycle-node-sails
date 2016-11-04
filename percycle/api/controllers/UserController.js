@@ -63,16 +63,18 @@ module.exports = {
 
     /** Função responsável por atualizar o usuário cadastrado(ADMIN): localhost:1337/user/edit/:id */
     edit: function(req, res, next) {
+
         User.findOne(req.param('id'), function foundUser(err, user) {
-            if(err)
+            if (err) 
                 return next(err);
-            if(!err)
-                return next();
+            if (!user) 
+                return next('Usuário não existe!');
+
             res.view({
-                user:user
+                user: user
+                });
             });
-        });
-    },
+        },
 
     /** Funçã responsável por editar as informações do usuário (USUÁRIO): ex.: http://localhost:1337/user/showUser/1 */
     update: function(req, res, next) {

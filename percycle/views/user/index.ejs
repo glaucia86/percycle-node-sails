@@ -15,7 +15,7 @@
         <% _.each(users, function(user) { %>
         <tr data-id="<%= user.id%>" data-model="user">
             <td><%= user.id %></td>
-            <td><%= user.nome %></td>
+            <td><%= user.name %></td>
             <td><%= user.email %></td>
             <td><a href="/user/showUser/<%= user.id %>" class="btn btn-sm btn-primary">Mostrar Perfil</a></td>
             <td><a href="/user/updateUser/<%= user.id %>" class="btn btn-sm btn-warning">Atualizar</a></td>
