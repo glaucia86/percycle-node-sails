@@ -35,8 +35,8 @@ module.exports = {
         });
     },
 
-    /** Função responsável por mostrar o profile do usuário: localhost:1337/ */
-    show: function(req, res, next) {
+    /** Função responsável por mostrar o perfil do usuário: localhost:1337/user/showUser/:id */
+    showUser: function(req, res, next) {
         //Em caso de encontrar um determinado usuário pelo 'id' retornar o usuário
         User.findOne(req.param('id'), function foundUser(err, user) {
             if(err)
