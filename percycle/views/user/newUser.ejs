@@ -1,13 +1,24 @@
 <!-- PÁGINA DE CADASTRO DE NOVO USUÁRIO DO SISTEMA -->
-<form action="/user/create" method="POST" class="form signin">
-    <h2 class="form-signin-heading">Crie uma Conta</h2>
+<form action="/user/create" method="POST" id="sign-up-form" class="form-signin">
+    <h2 class="form-signin-heading">Criar uma Conta</h2>
 
-    <input type="text" class="form-control" placeholder="Nome Completo" name="nome"/>
-    <input type="text" class="form-control" placeholder="E-mail" name="email"/>
-    <input type="text" class="form-control" placeholder="Digite a Senha" name="senha"/>
-    <input type="text" class="form-control" placeholder="Redigite a Senha" name="confirmacao"/>
+    <div class="control-group">
+        <input type="text" class="form-control" placeholder="Nome Completo" name="nome"/>
+    </div>
+
+    <div class="control-group">
+        <input type="text" class="form-control" placeholder="E-mail" name="email"/>
+    </div>
+
+    <div class="control-group">
+        <input type="text" class="form-control" placeholder="Digite a Senha" name="senha"/>
+    </div>
+
+    <div class="control-group">
+        <input type="text" class="form-control" placeholder="Redigite a Senha" name="confirmacao"/>      
     <br/>
+    </div>
 
-    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Criar Conta"/>
+    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Criar Conta"/>        
     <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
 </form>
