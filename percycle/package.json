@@ -1,8 +1,8 @@
 {
   "name": "percycle",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
+  "version": "1.0.0",
+  "description": "Projeto baseado no desafio da Percycle - Node.Js, Sails.Js & MongoDb",
   "keywords": [],
   "dependencies": {
     "ejs": "2.3.4",
@@ -30,8 +30,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/percycle.git"
+    "url": "https://github.com/glaucia86/percycle-node-sails.git"
   },
-  "author": "anonymous node/sails user",
-  "license": ""
+  "author": "Glaucia Lemos",
+  "license": "MIT"
 }
