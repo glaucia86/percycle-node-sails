@@ -17,13 +17,12 @@ module.exports = {
     /* Função responsável pela ação do botão 'Criar Conta' */
     create: function(req, res, next) {
         /* Aqui irá criar um Novo Usuário por meio dos parâmetros enviados desde do formulário da página: 'newUser.ejs' */
-        User.create(req.params.all(), function userCreated(error, user) {
-            if(error) {
+        User.create(req.params.all(), function userCreated(err, user) {
+            if(err) {
                 //Caso de erro, apresentar o erro na página.
-                console.log(error);
-
+                console.log(err);
                 req.session.flash = {
-                    error: error
+                    err: err
                 }
 
                 // Ao dar o erro o usuário será redirecionado para a Página Principal
