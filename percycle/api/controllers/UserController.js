@@ -9,9 +9,7 @@
 module.exports = {
     /* Função responsável por mostrar a view da Página de 'Criar Novo Usuário' */
     'newUser': function(req, res) {
-        res.locals.flash = _.clone(req.session.flash);
         res.view();   
-        req.session.flash = {};
     },
 
     /* Função responsável pela ação do botão 'Criar Conta' */
@@ -31,7 +29,6 @@ module.exports = {
 
             //Caso esteja tudo certo, criar o novo usuário.
             res.json(user);
-            req.session.flash = {};
         });
     }
 };
