@@ -87,23 +87,22 @@ module.exports = {
         });
     },
 
-    /** Função responsável por excluir as informações do usuário: localhost:1337/user/deleteUser/:id */
-    deleteUser: function(req, res, next) {
+    /** Função responsável por excluir as informações do usuário: localhost:1337/user/destroy/:id */
+    destroy: function(req, res, next) {
 
-        //Primeiro devemos procurar o 'id' do usuário que queremos deletar:
-        User.findOne(req.param('id'), function foundUser(err, user) {
-            if(err)
-                return next(err);
-            if(!user)
-                return next('O usuário não existe!');
+    //Primeiro devemos procurar o 'id' do usuário que queremos deletar:    
+    User.findOne(req.param('id'), function foundUser(err, user) {
+        if (err) 
+            return next(err);
+        if (!user) 
+            return next('O Usuário não existe!');
 
-            //Depois de encontrado... realizar a exclusão do usuário e redirecioná-lo para Página de Lista de Usuários:
-            User.deleteUser(req.param('id'), function userDeleted(err) {
-                if(err) 
-                    return next(err);
-            });
+    User.destroy(req.param('id'), function userDestroyed(err) {
+        if (err) 
+            return next(err);
+        });
 
-            res.redirect('/user');
+        res.redirect('/user');
         });
     }
 };
