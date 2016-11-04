@@ -29,6 +29,23 @@ module.exports = {
 
             //Caso esteja tudo certo, criar o novo usuário.
             res.json(user);
+
+            //Em caso do cadastro ser bem sucessido iremos redirecionar o usuário para s sua página personalizada.
+            res.redirect('/user/show/' + user.id);
+        });
+    },
+
+    /** Função responsável por mostrar o profile do usuário: localhost:1337/ */
+    show: function(req, res, next) {
+        //Em caso de encontrar um determinado usuário pelo 'id' retornar o usuário
+        User.findOne(req.param('id'), function foundUser(err, user) {
+            if(err)
+                return next(err);            
+            if(!user)
+                return next();         
+            res.view({
+                user: user
+            });
         });
     }
 };
