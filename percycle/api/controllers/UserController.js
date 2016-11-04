@@ -76,9 +76,9 @@ module.exports = {
             });
         },
 
-    /** Funçã responsável por editar as informações do usuário (USUÁRIO): ex.: http://localhost:1337/user/showUser/1 */
+    /** Função responsável por editar as informações do usuário (USUÁRIO)*/
     update: function(req, res, next) {
-        User.update(req.param('id'), req.params.all(), function userUpdate(err) {
+        User.update(req.param('id'), req.params.all(), function userUpdated(err) {
             if(err) {
                 return res.redirect('/user/edit/' + req.param('id'));
             }

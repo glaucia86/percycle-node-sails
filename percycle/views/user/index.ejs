@@ -18,7 +18,7 @@
             <td><%= user.name %></td>
             <td><%= user.email %></td>
             <td><a href="/user/showUser/<%= user.id %>" class="btn btn-sm btn-primary">Mostrar Perfil</a></td>
-            <td><a href="/user/updateUser/<%= user.id %>" class="btn btn-sm btn-warning">Atualizar</a></td>
+            <td><a href="/user/edit/<%= user.id %>" class="btn btn-sm btn-warning">Atualizar</a></td>
             <td><a href="/user/deleteUser/<%= user.id %>" class="btn btn-sm btn-danger">Excluir</a></td>
         </tr>
         <% }) %>

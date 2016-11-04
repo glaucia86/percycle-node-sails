@@ -73,7 +73,7 @@ function cometMessageReceivedFromServer(message) {
   // This message has to do with the User Model
   if (message.model === 'user') {
     var userId = message.id
-    updateUserInDom(userId, message);
+    editInDom(userId, message);
 
     if(message.verb !== "destroy") {
       displayFlashActivity(message);  
@@ -87,7 +87,7 @@ function displayFlashActivity(message) {
   $(".alert").fadeOut(5000);
 }
 
-function updateUserInDom(userId, message) {
+function editInDom(userId, message) {
 
   // What page am I on?
   var page = document.location.pathname;
@@ -103,7 +103,7 @@ function updateUserInDom(userId, message) {
 
       // This is a message coming from publishUpdate
       if (message.verb === 'update') {
-        UserIndexPage.updateUser(userId, message);
+        UserIndexPage.edit(userId, message);
       }
 
       // This is a message coming from publishCreate
@@ -125,7 +125,7 @@ function updateUserInDom(userId, message) {
 var UserIndexPage = {
 
   // Update the User, in this case their login status
-  updateUser: function(id, message) {
+  edit: function(id, message) {
     if (message.data.loggedIn) {
       var $userRow = $('tr[data-id="' + id + '"] td img').first();
       $userRow.attr('src', "/images/icon-online.png");
