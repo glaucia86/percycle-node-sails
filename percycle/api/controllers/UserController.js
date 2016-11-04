@@ -12,7 +12,7 @@ module.exports = {
         res.view();   
     },
 
-    /* Função responsável pela ação do botão 'Criar Conta': localhost:1337/user/newUser */
+    /* Função responsável em Criar Usuário: localhost:1337/user/newUser */
     create: function(req, res, next) {
         /* Aqui irá criar um Novo Usuário por meio dos parâmetros enviados desde do formulário da página: 'newUser.ejs' */
         User.create(req.params.all(), function userCreated(err, user) {
@@ -76,7 +76,7 @@ module.exports = {
             });
         },
 
-    /** Função responsável por editar as informações do usuário (USUÁRIO)*/
+    /** Função responsável por editar as informações do usuário: localhost:1337/user/edit/:id */
     update: function(req, res, next) {
         User.update(req.param('id'), req.params.all(), function userUpdated(err) {
             if(err) {
@@ -84,6 +84,26 @@ module.exports = {
             }
 
             res.redirect('/user/showUser/' + req.param('id'));
+        });
+    },
+
+    /** Função responsável por excluir as informações do usuário: localhost:1337/user/deleteUser/:id */
+    deleteUser: function(req, res, next) {
+
+        //Primeiro devemos procurar o 'id' do usuário que queremos deletar:
+        User.findOne(req.param('id'), function foundUser(err, user) {
+            if(err)
+                return next(err);
+            if(!user)
+                return next('O usuário não existe!');
+
+            //Depois de encontrado... realizar a exclusão do usuário e redirecioná-lo para Página de Lista de Usuários:
+            User.deleteUser(req.param('id'), function userDeleted(err) {
+                if(err) 
+                    return next(err);
+            });
+
+            res.redirect('/user');
         });
     }
 };
