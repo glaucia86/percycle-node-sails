@@ -16,9 +16,15 @@ module.exports = {
     create: function(req, res, next) {
         /* Aqui irá criar um Novo Usuário por meio dos parâmetros enviados desde do formulário da página: 'newUser.ejs' */
         User.create(req.params.all(), function userCreated(error, user) {
-            if(error)
-                return next(error);
-            
+            if(error) {
+                //Caso de erro, apresentar o erro na página.
+                console.log(error);
+                
+                // Ao dar o erro o usuário será redirecionado para a Página Principal
+                return res.redirect('/user/newUser');
+            }
+
+            //Caso esteja tudo certo, criar o novo usuário.
             res.json(user);
         });
     }
