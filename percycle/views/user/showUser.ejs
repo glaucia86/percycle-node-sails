@@ -1,9 +1,9 @@
 <!-- PÁGINA RESPONSÁVEL POR MOSTRAR O PERFIL DO USUÁRIO RECÉM-CADASTRADO -->
 
 <div class="container">
-    <h1><%- user.nome %></h1>
+    <h1><%= user.nome %></h1>
     <hr>
-    <h3>Contato: <%- user.email %></h3>
+    <h3>Contato: <%= user.email %></h3>
 
     <a class="btn btn-medium btn-primary" href="/user/edit/<%= user.id %>">Atualizar</a>
 </div>

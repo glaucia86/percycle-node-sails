@@ -12,7 +12,7 @@ module.exports = {
         res.view();   
     },
 
-    /* Função responsável pela ação do botão 'Criar Conta' */
+    /* Função responsável pela ação do botão 'Criar Conta': localhost:1337/user/newUser */
     create: function(req, res, next) {
         /* Aqui irá criar um Novo Usuário por meio dos parâmetros enviados desde do formulário da página: 'newUser.ejs' */
         User.create(req.params.all(), function userCreated(err, user) {
@@ -45,6 +45,18 @@ module.exports = {
                 return next();         
             res.view({
                 user: user
+            });
+        });
+    },
+
+    /** Função responsável por listar os usuários cadastrados: localhost:1337/user */
+    listUsers: function(req, res, next) {
+        //Aqui o código irá retornar todos os usuários da coleção:
+        User.find(function foundUsers(err, users) {
+            if(err)
+                return next(err);
+            res.view({
+                users: users
             });
         });
     }
