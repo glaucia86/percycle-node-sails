@@ -35,6 +35,31 @@ module.exports = {
       delete obj._csrf;
       return obj;
     }
+  },
+
+  /** Função responsável por criptografar a senha digitada tornando assim, mais seguro para o usuário o que está
+   * sendo digitado de informação pessoal pelo sistema:
+   */
+  beforeCreate: function(values, next) {
+
+    //Esse 'if' irá verificar se a senha e a confirmação da senha são as mesmas antes gravar na base de dados:
+    if(!values.password || values.password != values.confirmacao) {
+      return next({
+        err: ["A senha digitada não corresponde com a senha de confirmação."]
+      });
+    }
+
+    //Caso seja as mesmas senhas e estivirem tudo ok,
+    //Aqui estaremos encriptografando a senha do usuário ao usar o módulo 'bcrypt', para manter seguro os dados do usuário:
+    //Mais info aqui: https://github.com/kelektiv/node.bcrypt.js
+    require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
+        if(err)
+          return next(err);
+        
+        //Caso não retorne nenhum erro será atribuído a variável 'encryptedPassword' uma nova senha criptografada via hash:
+        values.encryptedPassword = encryptedPassword;
+        next();  
+    });
   }
 };
 
