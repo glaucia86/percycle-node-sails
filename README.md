@@ -29,16 +29,52 @@ a base de dados do MongoDb em Cloud:
 
 ### Instalando as Dependências:
 
-Abre o cmd (caso esteja utilizando o Windows) e digite a path do seu projeto
+Antes de instalar as dependências há a necessidade de instalar o **node-gyp** uma vez que,
+estamos usando o módulo de criptografia: **bcrypt** (que usa o Python). Para isso, abre o seu terminal e execute
+o seguinte comando abaixo **Somente para usuários Windows**
+
+Passo 1) Como administrador executar o comando no prompt: 
+
+```
+npm install --global --production windows-build-tools
+```
+
+Passo 2) Depois o seguinte comando:
+
+```
+$ npm install --global node-gyp
+```
+
+p.s.: Em caso de dar erro ao instalar o **bcrypt** tente executar os 2 seguintes comandos:
+
+```
+npm install --save bcryptjs && npm uninstall --save bcrypt
+```
+
+e
+
+```
+npm install bcrypt --save
+```
+
+Agora com o Python devidamente instalado na sua máquina, agora sim poderá instalar as dependências do projeto.
+
+Passo 3) Abre o cmd (caso esteja utilizando o Windows) e digite a path do seu projeto
 
 ```
 cd "C:\Users\NomeDoComputador\Documents\..."
 ```
 
-Depois, quando estiver na pasta do projeto você deverá instalar o Sails globalmente. Para isso, basta digitar no cmd a seguinte instrução:
+Passo 4) Depois, quando estiver na pasta do projeto você deverá instalar o Sails globalmente. Para isso, basta digitar no cmd a seguinte instrução:
 
 ```
 npm install sails -g
+```
+
+Passo 5) Executar enfim o comando:
+
+```
+npm install
 ```
 
 ### Executando a Aplicação:
@@ -59,5 +95,8 @@ mongod
 Caso o MongoDb esteja devidamente instalado em sua máquina, ele iniciará o serviço mostrando que a port 27017 foi iniciada.
 
 Agora, abre a página da aplicação em `http://localhost:1337`. E pronto a aplicação será executada de maneira local na sua máquina.  
+
+
+
 
 
