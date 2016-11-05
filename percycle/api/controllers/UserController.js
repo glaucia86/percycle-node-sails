@@ -27,11 +27,8 @@ module.exports = {
                 return res.redirect('/user/newUser');
             }
 
-            //Caso esteja tudo certo, criar o novo usuário.
-            res.json(user);
-
-            //Em caso do cadastro ser bem sucessido iremos redirecionar o usuário para s sua página personalizada.
-            res.redirect('/user/show/' + user.id);
+            //Em caso do cadastro ser bem sucessido iremos redirecionar o usuário para sua página personalizada.
+            res.redirect('/user/showUser/' + user.id);
         });
     },
 

@@ -23,8 +23,17 @@ module.exports = {
       unique: true
     },
     
-    senhaCriptografada: {
+    encryptedPassword: {
       type: 'string'
+    },
+
+    toJSON: function() {
+      var obj = this.toObject();
+      delete obj.password;
+      delete obj.confirmacao;
+      delete obj.encryptedPassword;
+      delete obj._csrf;
+      return obj;
     }
   }
 };
