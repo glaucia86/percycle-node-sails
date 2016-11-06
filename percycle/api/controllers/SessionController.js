@@ -88,6 +88,16 @@ module.exports = {
                 res.redirect('/user/showUser/' + user.id);
             });
         });
+    },
+
+    /** Função responsável por realizar o logout (Sair) da sessão do sistema */
+    destroy: function(req, res, next) {
+
+        //Aqui iremos dar o logout (Sair) do sistema 
+        req.session.destroy();
+
+        //Ao sair do sistema seremos redirecionados para a Página de Login do sistema:
+        res.redirect('/session/newUser');
     }
 };
 
