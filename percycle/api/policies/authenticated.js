@@ -3,19 +3,23 @@
  */
 module.exports = function(req, res, ok) {
 
-  // User is allowed, proceed to controller
-  if (req.session.User) {
+  //Se o usuário for permitido, proceder a lógica para o controller
+  if (req.session.authenticated) {
     return ok();
   }
 
-  // User is not allowed
+  // Caso não seja usuário permitido....
   else {
-    // 	var requireLoginError = [{name: 'requireLogin', message: 'You must be signed in.'}]
-    // req.session.flash = {
-    // 	err: requireLoginError
-    // }
-    // res.redirect('/session/new');
-    //   return;
-    res.send(403);
+     	var requireLoginError = [{
+         name: 'requireLogin', 
+         message: 'Você deve estar logado no sistema.'
+      }]
+      
+      req.session.flash = {
+     	  err: requireLoginError
+     }
+     res.redirect('/session/newUser');
+       return;
+    //res.send(403);
   }
 };
