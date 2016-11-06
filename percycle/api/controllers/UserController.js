@@ -48,10 +48,7 @@ module.exports = {
 
     /** Função responsável por listar os usuários cadastrados (ADMIN): localhost:1337/user */
     index: function(req, res, next) {
-
-        console.log(new Date());
-        console.log(req.session.authenticated);
-
+        
         //Aqui o código irá retornar todos os usuários da coleção:
         User.find(function foundUsers(err, users) {
             if(err)

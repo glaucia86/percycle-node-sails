@@ -11,16 +11,29 @@ module.exports = {
     /** Função responsável por poder manipular as sessões dos usários que se logam no sistema */
     'newUser': function(req, res) {
 
-        //Aqui estou criando uma variável para poder controlar a sessão através do cookie:
-        //exemplo: http://www.w3schools.com/js/js_dates.asp
-        var oldDateObj = new Date();
-        var newDateObj = new Date(oldDateObj.getTime() + 60000);
-        req.session.cookie.expires = newDateObj;
-
-        req.session.authenticated = true;
-        console.log(req.session);
-
         res.view('session/newUser');
+    },
+
+    /** Função responsável por averiguar se os dados inseridos no formulário estão de acordo com que já
+     * está cadastrado no sistema
+     */
+    create: function(req, res, next) {
+
+        //Aqui irá verificar se os parâmetros de email e senha foram digitados no formulário:
+        if(!req.param('email') || !req.param('password')) {
+
+            var usernamePasswordRequiredError = [{
+                name: 'usernamePasswordRequired',
+                message: 'Você deve inserir os campos usuário e senha.'
+            }]
+
+            req.session.flash = {
+                err: usernamePasswordRequiredError
+            }
+
+            res.redirect('/session/newUser');
+            return;
+        }
     }
 };
 
