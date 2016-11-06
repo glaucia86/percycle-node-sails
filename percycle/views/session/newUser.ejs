@@ -1,0 +1,17 @@
+<!-- PÁGINA RESPONSÁVEL POR MANIPULAR AS SESSÕES DOS USUÁRIOS RECÉM LOGADOS NO SISTEMA -->
+<form action="/session/create" method="POST" class="form-signin">
+    <h2 class="form-signin-heading">Entrar na Percycle System</h2>
+
+    <% if(flash && flash.err) { %>
+        <ul class="alert alert-success">
+    <% Object.keys(flash.err).forEach(function(error) { %>
+        <li><%- JSON.stringify(flash.err[error]) %></li>
+    <% }) %>
+        </ul>
+    <% } %>
+
+    <input type="text" class="form-control" placeholder="E-mail" name="email" />
+    <input type="password" class="form-control" placeholder="Digite a Senha" name="password" />
+    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Entrar" />
+    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+</form> 
