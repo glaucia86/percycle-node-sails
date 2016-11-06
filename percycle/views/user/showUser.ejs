@@ -4,13 +4,16 @@
     <h1><%= user.name %></h1>
 
     <% if (user.admin) { %>
-        <td><img src="/images/admin.png"></td> 
-    <% } else { %>    
-        <td><img src="/images/pawn.png"></td> 
-    <% } %>
+    <img src="https://i.imgsafe.org/f7c61b8ac7.png" alt="Administrador"/> Administrador
+  <% } else { %>
+      <img src="https://i.imgsafe.org/f7c2f97dcd.png" alt="Usuário" /> Usuário Regular
+      
+      
+  <% } %> 
     <hr>
     <h3>Contato: <%= user.email %></h3>
 
     <a class="btn btn-medium btn-primary" href="/user/edit/<%= user.id %>">Atualizar</a>
 </div>
+
 
