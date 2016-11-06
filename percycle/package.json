@@ -36,5 +36,8 @@
     "url": "https://github.com/glaucia86/percycle-node-sails.git"
   },
   "author": "Glaucia Lemos",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "grunt-contrib-watch": "^1.0.0"
+  }
 }
