@@ -2,8 +2,15 @@
 
 <div class="container">
     <h1><%= user.name %></h1>
+
+    <% if (user.admin) { %>
+        <td><img src="/images/admin.png"></td> 
+    <% } else { %>    
+        <td><img src="/images/pawn.png"></td> 
+    <% } %>
     <hr>
     <h3>Contato: <%= user.email %></h3>
 
     <a class="btn btn-medium btn-primary" href="/user/edit/<%= user.id %>">Atualizar</a>
 </div>
+

@@ -17,8 +17,16 @@
             <td><%= user.id %></td>
             <td><%= user.name %></td>
             <td><%= user.email %></td>
+
+            <% if (user.admin) { %>
+                <td><img src="/images/admin.png"></td> 
+            <% } else { %>    
+                <td><img src="/images/user.png"></td> 
+            <% } %>
+
             <td><a href="/user/showUser/<%= user.id %>" class="btn btn-sm btn-primary">Mostrar Perfil</a></td>
             <td><a href="/user/edit/<%= user.id %>" class="btn btn-sm btn-warning">Atualizar</a></td>
+            
             <td><form action="/user/destroy/<%= user.id %>" method="POST">
 				<input type="hidden" name="_method" value="delete"/>
 				<input type="submit" class="btn btn-sm btn-danger" value="Excluir"/>
