@@ -30,6 +30,7 @@ module.exports.policies = {
 
   user: {
     'newUser': "flash",
+    create: "flash",
     '*': "authenticated"
   }
   

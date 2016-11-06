@@ -18,14 +18,17 @@ module.exports = {
         User.create(req.params.all(), function userCreated(err, user) {
             if(err) {
                 //Caso de erro, apresentar o erro na página.
-                console.log(err);
                 req.session.flash = {
                     err: err
                 }
 
-                // Ao dar o erro o usuário será redirecionado para a Página Principal
+                // Ao dar o erro o usuário será redirecionado para a Página Principal para que possa se logar:
                 return res.redirect('/user/newUser');
             }
+
+            //E por consequencia o usuário será autenticado e logado no sistema:
+            req.session.authenticated = true;
+            req.session.User = user;
 
             //Em caso do cadastro ser bem sucessido iremos redirecionar o usuário para sua página personalizada.
             res.redirect('/user/showUser/' + user.id);
