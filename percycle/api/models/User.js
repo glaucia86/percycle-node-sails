@@ -42,6 +42,18 @@ module.exports = {
     }
   },
 
+  /** Função responsável por habilitar um determinado usuário como ADMIN do sistema */
+  /*beforeValidation: function (values, next) {
+    if (typeof values.admin !== 'undefined') {
+      if (values.admin === 'unchecked') {
+        values.admin = false;
+      } else  if (values.admin[1] === 'on') {
+        values.admin = true;
+      }
+    }
+     next();
+  },*/
+
   /** Função responsável por criptografar a senha digitada tornando assim, mais seguro para o usuário o que está
    * sendo digitado de informação pessoal pelo sistema:
    */

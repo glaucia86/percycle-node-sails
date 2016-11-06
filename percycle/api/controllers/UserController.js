@@ -79,8 +79,18 @@ module.exports = {
 
     /** Função responsável por editar as informações do usuário: localhost:1337/user/edit/:id */
     update: function(req, res, next) {
-        User.update(req.param('id'), req.params.all(), function userUpdated(err) {
-            if(err) {
+
+        var dataUser = {
+            name: req.param('name'),
+            email: req.param('email'),
+            admin: req.param('admin') ? true:false,
+        };
+        /*
+        console.log(dataUser);
+        console.log(req.params.all());*/
+
+        User.update(req.param('id'), dataUser, function userUpdated(err) {
+            if (err) {
                 return res.redirect('/user/edit/' + req.param('id'));
             }
 

@@ -6,12 +6,16 @@
     <input value="<%= user.name %>" name="name" type="text" class="form-control"/>
     <input value="<%= user.email %>" name="email" type="text" class="form-control"/>
 
-    <% if (session.authenticated && session.User.admin) { %>
-        <input type="hidden" name="admin" value="unchecked" />
-        <label class="checkbox"><input type="checkbox" name="admin" checked /> Administrador</label>
-    <% } else { %>
-        <input type="hidden" name="admin" value="unchecked" />
-        <label class="checkbox"><input type="checkbox" name="admin" /> Administrador</label>
+    <% if (session.authenticated && session.User.admin) {%>
+        <% if (user.admin) { %>
+            <label class="checkbox">
+                <input type="checkbox" name="admin" checked value="yes"> Administrador
+            </label>
+        <% } else { %>
+            <label class="checkbox">
+                <input type="checkbox" name="admin" value="yes"> Administrador
+            </label>
+        <% } %>
     <% } %>
 
     <input type="submit" value="Atualizar Usuário" class="btn btn-lg btn-primary btn-block"/>
