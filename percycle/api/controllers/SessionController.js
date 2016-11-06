@@ -34,6 +34,23 @@ module.exports = {
             res.redirect('/session/newUser');
             return;
         }
+
+        //Aqui estamos procurando o usuário pelo email já cadastrado no sistema:
+        User.findUserByEmail(req.param('email')).done(function(err, user) {
+            if(err)
+                return next(err);
+
+            //Caso o usuário não seja encontrado...
+            if(!user) {
+                var userNotFound = [{
+                    name: 'notUser',
+                    message: 'O endereço de email ' + req.param('email') + ' não foi encontrado.'
+                }]
+
+                res.redirect('/session/newUser');
+                return;
+            }
+        });
     }
 };
 
