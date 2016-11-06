@@ -1,6 +1,12 @@
 /**
- * Allow any authenticated user.
+ * Arquivo: authenticated.js
+ * Data: 05/11/2016
+ * Author: Glaucia Lemos
+ * @description :: Arquivo responsável por dar acesso e autenticação ao sistema
+ *  ao usuário recém logado e cadastrado no sistema.
+ * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+
 module.exports = function(req, res, ok) {
 
   //Se o usuário for permitido, proceder a lógica para o controller
