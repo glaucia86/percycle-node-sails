@@ -5,6 +5,15 @@
 
     <input value="<%= user.name %>" name="name" type="text" class="form-control"/>
     <input value="<%= user.email %>" name="email" type="text" class="form-control"/>
+
+    <% if (session.authenticated && session.User.admin) { %>
+        <input type="hidden" name="admin" value="unchecked" />
+        <label class="checkbox"><input type="checkbox" name="admin" checked /> Administrador</label>
+    <% } else { %>
+        <input type="hidden" name="admin" value="unchecked" />
+        <label class="checkbox"><input type="checkbox" name="admin" /> Administrador</label>
+    <% } %>
+
     <input type="submit" value="Atualizar Usuário" class="btn btn-lg btn-primary btn-block"/>
     <input type="hidden" name="_csrf" value="<%= _csrf %>" />
 </form>
