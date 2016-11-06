@@ -83,6 +83,13 @@ module.exports = {
                 req.session.authenticated = true;
                 req.session.User = user;
 
+                //Aqui, caso o usuário seja o ADMIN do sistema ele será 
+                //redirecionado para a lista de usuários já cadastrados no sistema.
+                if(req.session.User.admin) {
+                    res.redirect('/user');
+                    return;
+                }
+
                 //... será redirecionado para sua página profile pessoal: 
                 //localhost:1337/user/showUser/:id
                 res.redirect('/user/showUser/' + user.id);
