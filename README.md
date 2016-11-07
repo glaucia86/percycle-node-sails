@@ -1,6 +1,6 @@
-# Projeto - Percycle com Node.Js, Sails.Js & MongoDb (em Desenvolvimento)
+# Projeto - Percycle com Node.Js, Sails.Js & MongoDb
 
-Desenvolvimento de uma aplicação em Node.Js usando Sails.js e MongoDb.
+Desenvolvimento de uma aplicação em Node.Js usando Sails.js e MongoDb para o desafio da Percycle.
 
 ## Recursos Utilizados no desenvolvimento do projeto:
 
@@ -14,7 +14,6 @@ Desenvolvimento de uma aplicação em Node.Js usando Sails.js e MongoDb.
 - Bootstrap;
 - EJS;
 - Robomongo (UI MongoDb - Para poder administrar o banco MongoDB **opcional**);
-- Heroku (para realizar o Deploy do sistema desenvolvido);
 
 ## Pré-Requisitos: Instalação de dependências:
 
@@ -29,6 +28,8 @@ a base de dados do MongoDb em Cloud:
 
 * [Modulus](https://modulus.io/)
 * [MLab](https://mlab.com/)
+
+Eu usei o MongoDb de maneira local... assim que as opções acima não são um fator relevante.
 
 ### Instalando as Dependências:
 
