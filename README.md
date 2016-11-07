@@ -13,6 +13,7 @@ Desenvolvimento de uma aplicação em Node.Js usando Sails.js e MongoDb.
 - JSON data (para retornar os dados);
 - Bootstrap;
 - EJS;
+- WebSocket.io;
 - Robomongo (UI MongoDb - Para poder administrar o banco MongoDB **opcional**)
 
 ## Pré-Requisitos: Instalação de dependências:

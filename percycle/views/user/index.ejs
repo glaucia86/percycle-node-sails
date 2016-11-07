@@ -4,6 +4,7 @@
     <h3>Lista de Usuários Cadastrados</h3>
     <table class="table table-striped">
         <tr>
+            <th></th>
             <th>Id do Usuário</th>
             <th>Nome Completo</th>
             <th>E-mail Cadastrado</th>
@@ -14,6 +15,11 @@
 
         <% _.each(users, function(user) { %>
         <tr data-id="<%= user.id%>" data-model="user">
+            <% if (user.online) { %>
+                <td><img src="https://i.imgsafe.org/fc9e72c587.png" alt="Usuário Online" /></td>
+            <% } else { %>
+                <td><img src="https://i.imgsafe.org/fca25204ff.png" alt="Usuário Offline" /></td>
+            <% } %>
             <td><%= user.id %></td>
             <td><%= user.name %></td>
             <td><%= user.email %></td>
