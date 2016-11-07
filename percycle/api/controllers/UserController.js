@@ -12,11 +12,14 @@ module.exports = {
         res.view();   
     },
 
-    /* Função responsável em Criar Usuário: localhost:1337/user/newUser */
-    create: function(req, res, next) {
-        /* Aqui irá criar um Novo Usuário por meio dos parâmetros enviados desde do formulário da página: 'newUser.ejs' */
-        User.create(req.params.all(), function userCreated(err, user) {
+    create: function (req, res, next) {
+
+        /* Aqui irá criar um Novo Usuário por meio dos parâmetros enviados 
+            desde do formulário da página: 'newUser.ejs' */
+        User.create(req.params.all(), function userCreated (err, user) {
+
             if(err) {
+                console.log(err);
                 //Caso de erro, apresentar o erro na página.
                 req.session.flash = {
                     err: err
@@ -32,12 +35,12 @@ module.exports = {
 
             //Caso o usuário consiga se logar no sistema, será alterado o status para online:
             user.online = true;
-            user.save(function(err, user) {
-                if (err)
+            user.save(function(err) {
+                if(err)
                     return next(err);
-            
-            //Em caso do cadastro ser bem sucessido iremos redirecionar o usuário para sua página personalizada.
-            res.redirect('/user/showUser/' + user.id);
+
+                //Em caso do cadastro ser bem sucessido iremos redirecionar o usuário para sua página personalizada.
+                res.redirect('/user/showUser/' + user.id);
             });
         });
     },

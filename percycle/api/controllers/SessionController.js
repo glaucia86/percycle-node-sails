@@ -85,7 +85,7 @@ module.exports = {
 
                 //Caso o usuário consiga se logar no sistema, será alterado o status para online:
                 user.online = true;
-                user.save(function(err, user) {
+                user.save(function(err) {
                     if (err)
                         return next(err);
 
