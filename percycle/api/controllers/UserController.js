@@ -14,9 +14,16 @@ module.exports = {
 
     create: function (req, res, next) {
 
+        var userData = {
+            name: req.param('name'),
+            email: req.param('email'),
+            password: req.param('password'),
+            confirmacao: req.param('confirmacao')
+        }
+
         /* Aqui irá criar um Novo Usuário por meio dos parâmetros enviados 
             desde do formulário da página: 'newUser.ejs' */
-        User.create(req.params.all(), function userCreated (err, user) {
+        User.create(userData, function userCreated (err, user) {
 
             if(err) {
                 console.log(err);
@@ -90,14 +97,18 @@ module.exports = {
     /** Função responsável por editar as informações do usuário: localhost:1337/user/edit/:id */
     update: function(req, res, next) {
 
-        var dataUser = {
-            name: req.param('name'),
-            email: req.param('email'),
-            admin: req.param('admin') ? true:false,
-        };
-        /*
-        console.log(dataUser);
-        console.log(req.params.all());*/
+        if(req.session.User.admin) {
+            var dataUser = {
+                name: req.param('name'),
+                email: req.param('email'),
+                admin: req.param('admin') ? true:false,
+            }
+        } else {
+            var dataUser = {
+                name: req.param('name'),
+                email: req.param('email')
+            }
+        }
 
         User.update(req.param('id'), dataUser, function userUpdated(err) {
             if (err) {
