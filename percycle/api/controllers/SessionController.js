@@ -56,7 +56,7 @@ module.exports = {
                 res.redirect('/session/newUser');
                 return;
             }
-
+            
             /** Aqui iremos comparar do formulário se os parâmetros da senha encriptografada
              * do usuário foi encontrada
              */
