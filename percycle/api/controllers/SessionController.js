@@ -83,16 +83,23 @@ module.exports = {
                 req.session.authenticated = true;
                 req.session.User = user;
 
-                //Aqui, caso o usuário seja o ADMIN do sistema ele será 
-                //redirecionado para a lista de usuários já cadastrados no sistema.
-                if(req.session.User.admin) {
-                    res.redirect('/user');
-                    return;
-                }
+                //Caso o usuário consiga se logar no sistema, será alterado o status para online:
+                user.online = true;
+                user.save(function(err, user) {
+                    if (err)
+                        return next(err);
 
-                //... será redirecionado para sua página profile pessoal: 
-                //localhost:1337/user/showUser/:id
-                res.redirect('/user/showUser/' + user.id);
+                    //Aqui, caso o usuário seja o ADMIN do sistema ele será 
+                    //redirecionado para a lista de usuários já cadastrados no sistema.
+                    if(req.session.User.admin) {
+                        res.redirect('/user');
+                        return;
+                    }
+
+                    //... será redirecionado para sua página profile pessoal: 
+                    //localhost:1337/user/showUser/:id
+                    res.redirect('/user/showUser/' + user.id);
+                });
             });
         });
     },
@@ -100,11 +107,23 @@ module.exports = {
     /** Função responsável por realizar o logout (Sair) da sessão do sistema */
     destroy: function(req, res, next) {
 
-        //Aqui iremos dar o logout (Sair) do sistema 
-        req.session.destroy();
+        User.findOne(req.session.User.id, function foundUser (err, user) {
+            var userId = req.session.User.id
 
-        //Ao sair do sistema seremos redirecionados para a Página de Login do sistema:
-        res.redirect('/session/newUser');
+            //Aqui estaremos atualizando o status do usuário em caso de deslogar do sistema:
+            User.update(userId, {
+               online: false 
+            }, function(err) {
+                if (err)
+                    return next(err);
+                
+                //Aqui iremos dar o logout (Sair) do sistema 
+                req.session.destroy();
+
+                //Ao sair do sistema seremos redirecionados para a Página de Login do sistema:
+                res.redirect('/session/newUser');
+            });
+        });
     }
 };
 

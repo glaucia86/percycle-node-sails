@@ -30,8 +30,15 @@ module.exports = {
             req.session.authenticated = true;
             req.session.User = user;
 
+            //Caso o usuário consiga se logar no sistema, será alterado o status para online:
+            user.online = true;
+            user.save(function(err, user) {
+                if (err)
+                    return next(err);
+            
             //Em caso do cadastro ser bem sucessido iremos redirecionar o usuário para sua página personalizada.
             res.redirect('/user/showUser/' + user.id);
+            });
         });
     },
 
