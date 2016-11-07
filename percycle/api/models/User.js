@@ -32,6 +32,13 @@ module.exports = {
       type: 'string'
     },
 
+    /** Esse atributo estaremos usando para ver qual o usuário está online ou não no sistema
+     * (visualização somente para o ADMIN) */
+    online: {
+      type: 'boolean',
+      defaultsTo: false
+    },
+
     toJSON: function() {
       var obj = this.toObject();
       delete obj.password;
